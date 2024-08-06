@@ -14,6 +14,13 @@ import {
 } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout';
 
+this.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
+
 const App = () => {
   //ADD NEW JOB
   const addJob = async(newJob) =>{
