@@ -14,18 +14,12 @@ import {
 } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout';
 
-this.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
-
 
 const App = () => {
   //ADD NEW JOB
   const addJob = async(newJob) =>{
     try{
-      const res = await fetch('/api/jobs', {
+      const res = await fetch('https://my-json-server.typicode.com/adrian023/rest-api-json/jobs', {
         method: "POST",
         headers: {
           'Content-Type': "application/json",
@@ -50,7 +44,7 @@ const App = () => {
 
   const editJob = async(job) =>{
     try{
-      const res = await fetch(`/api/jobs/${job.id}`, {
+      const res = await fetch(`https://my-json-server.typicode.com/adrian023/rest-api-json/jobs/${job.id}`, {
         method: "PUT",
         headers: {
           'Content-Type': "application/json",
@@ -83,7 +77,7 @@ const App = () => {
 
   const deleteJob = async (id) => {
     try {
-      const res = await fetch(`/api/jobs/${id}`, {
+      const res = await fetch(`https://my-json-server.typicode.com/adrian023/rest-api-json/jobs/${id}`, {
         method: "DELETE",
       });
   

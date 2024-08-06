@@ -10,10 +10,17 @@ function JobListings({isHome=true}) {
   // declare useEffects
   useEffect( () =>{
     const fetchJobs = async () => {
-      const appUrl = isHome? "https://restful-api-vercel-e4inf4ue2-adrians-projects-d19b5adb.vercel.app/jobs" : "https://restful-api-vercel-e4inf4ue2-adrians-projects-d19b5adb.vercel.app/jobs"
+      const appUrl = isHome? "https://my-json-server.typicode.com/adrian023/rest-api-json/jobs?_limit=3" : "https://my-json-server.typicode.com/adrian023/rest-api-json/jobs"
       try {
-          const res = await fetch(appUrl);
+          const res = await fetch(appUrl, {
+            method: 'GET',
+            credentials: "include",
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          });
           const data = await res.json();
+          console.log(data);
           setJobs(data);
       } catch (error) {
           console.log('Error fetching data', error);
