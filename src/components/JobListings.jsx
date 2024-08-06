@@ -10,7 +10,7 @@ function JobListings({isHome=true}) {
   // declare useEffects
   useEffect( () =>{
     const fetchJobs = async () => {
-      const appUrl = isHome? "/api/jobs?_limit=3" : "/api/jobs"
+      const appUrl = isHome? "https://restful-api-vercel-idu4hyh12-adrians-projects-d19b5adb.vercel.app/jobs" : "https://restful-api-vercel-idu4hyh12-adrians-projects-d19b5adb.vercel.app/jobs"
       try {
           const res = await fetch(appUrl);
           const data = await res.json();
