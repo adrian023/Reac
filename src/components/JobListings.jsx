@@ -20,7 +20,6 @@ function JobListings({isHome=true}) {
             }
           });
           const data = await res.json();
-          console.log(data);
           setJobs(data);
       } catch (error) {
           console.log('Error fetching data', error);
